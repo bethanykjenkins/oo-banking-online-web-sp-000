@@ -23,7 +23,7 @@ class Transfer
       @receiver.balance += @amount
       @status = "complete" #each transfer can only happen once
     else 
-      @status = "rejected"
+      @status = "rejected" #rejects a transfer if the sender does not have enough funds (does not have a valid account)
       return "Transaction rejected. Please check your account balance."
     end
   end
