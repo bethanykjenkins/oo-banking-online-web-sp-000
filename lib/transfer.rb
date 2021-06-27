@@ -18,7 +18,7 @@ class Transfer
   end
   
   def execute_transaction #can exdecute a successful transaction between two accounts
-    if @sender.balance >= @amount && @status == "pending" || @sender.balance >= @amount && @status == "open"
+    if @sender.balance >= @amount && @status == "pending" && valid? == true
       @sender.balance -= @amount
       @receiver.balance += @amount
       @status = "complete" #each transfer can only happen once
