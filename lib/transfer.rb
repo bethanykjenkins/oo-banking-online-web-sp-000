@@ -18,10 +18,10 @@ class Transfer
   end
   
   def execute_transaction #can exdecute a successful transaction between two accounts
-    if @sender.balance >= @amount && @status == "pending"
+    if @sender.balance >= @amount && @status == "pending" || @sender.balance >= @amount && @status == "open"
       @sender.balance -= @amount
       @receiver.balance += @amount
-      @status = "complete"
+      @status = "complete" #each transfer can only happen once
     else 
       @status = "rejected"
       return "Transaction rejected. Please check your account balance."
