@@ -28,7 +28,7 @@ class Transfer
     end
   end
   
-  def reverse_transfer
+  def reverse_transfer #can reverse a transfer between two accounts
     if @status == "complete" #it can only reverse executed transfers
       @sender.balance += @amount
       @receiver.balance -= @amount
